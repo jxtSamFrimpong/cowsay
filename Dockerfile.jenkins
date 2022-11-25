@@ -13,6 +13,8 @@ RUN apt-get update  -qq \
 
 RUN usermod -aG docker jenkins
 
+RUN apt-get install git -y
+
 #COPY docker-install.sh .
 #RUN chmod +x docker-install.sh
 #RUN ./docker-install.sh

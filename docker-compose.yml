@@ -1,39 +1,18 @@
 version: "3.9"
 services:
-  # cowsay:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   # ports:
-  #   #   - "8080:8080"
-  #   networks:
-  #     - cowsay-nginx
-
-  # shield:
-  #   # build:
-  #   #   context: .
-  #   #   dockerfile: Dockerfile.nginx
-  #   image: nginx
-  #   ports:
-  #     - "80:80"
-  #   networks:
-  #     - cowsay-nginx
-  #   volumes:
-  #     - $PWD/conf/nginx.conf:/etc/nginx/nginx.conf
-  #     - $PWD/conf/access.log:/var/log/nginx/access.log
-  #     # - $PWD/conf/nginx.conf:/etc/nginx/conf.d/default.conf
-
   jenkins:
-    #image: jenkins-dock
-    build:
-      context: .
-      dockerfile: Dockerfile.jenkins
+    image: jenkins-dock
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.jenkins
     ports:
       - 8080:8080
       - 50000:50000
     restart: on-failure
     volumes:
       - jenkins_home:/var/jenkins_home
+    networks:
+      - eth-ci
   gitlab:
     image: 'gitlab/gitlab-ee'
     restart: always
@@ -51,11 +30,12 @@ services:
       - '$GITLAB_HOME/logs:/var/log/gitlab'
       - '$GITLAB_HOME/data:/var/opt/gitlab'
     shm_size: '256m'
+    networks:
+      - eth-ci
 
 networks:
   eth-ci:
-    #cowsay-nginx:
-    # driver: bridge
-    # external: true
+
+
 volumes:
   jenkins_home:
