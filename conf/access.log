@@ -1,0 +1,4 @@
+192.168.160.1 - - [14/Nov/2022:19:41:32 +0000] "GET / HTTP/1.1" 200 995 "-" "curl/7.81.0"
+192.168.160.1 - - [14/Nov/2022:19:48:42 +0000] "GET / HTTP/1.1" 200 401 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+172.18.0.1 - - [25/Nov/2022:14:33:03 +0000] "GET / HTTP/1.1" 200 413 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
+172.18.0.1 - - [25/Nov/2022:14:33:11 +0000] "GET /favicon.ico HTTP/1.1" 200 635 "http://localhost/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"
