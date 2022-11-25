@@ -1,6 +1,5 @@
 #!/bin/bash
-EXTERNAL_IPS="localhost:4000"
-RESPONSE_CODE=$(curl -i http://$EXTERNAL_IPS | head -1 | awk '{print $2}')
+RESPONSE_CODE=$(curl -i http://localhost:4000 | head -1 | awk '{print $2}')
 if [ $RESPONSE_CODE -eq 200 ]
 then
     echo "Success"
