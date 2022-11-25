@@ -38,10 +38,10 @@ services:
     image: 'gitlab/gitlab-ee'
     restart: always
     #hostname: 'gitlab.example.com'
-    environment:
-      # GITLAB_OMNIBUS_CONFIG: |
-      #   external_url 'https://gitlab.example.com'
-      #   # Add any other gitlab.rb configuration here, each on its own line
+    #environment:
+    # GITLAB_OMNIBUS_CONFIG: |
+    #   external_url 'https://gitlab.example.com'
+    #   # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '80:80'
       - '443:443'
