@@ -17,7 +17,7 @@ services:
   gitlab:
     container_name: gitlab
     image: 'gitlab/gitlab-ee'
-    restart: always
+    restart: on-failure
     # hostname: 'gitlab.example.com'
     # environment:
     #   GITLAB_OMNIBUS_CONFIG: |
@@ -28,9 +28,9 @@ services:
       - '443:443'
       - '222:22'
     volumes:
-      - ${GITLAB_HOME}/config:/etc/gitlab
-      - ${GITLAB_HOME}/logs:/var/log/gitlab
-      - ${GITLAB_HOME}/data:/var/opt/gitlab
+      - ~/gitlab/config:/etc/gitlab
+      - ~/gitlab/logs:/var/log/gitlab
+      - ~/gitlab/data:/var/opt/gitlab
     shm_size: '256m'
     networks:
       - eth-ci
