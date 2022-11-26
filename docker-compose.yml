@@ -28,9 +28,9 @@ services:
       - '443:443'
       - '222:22'
     volumes:
-      - ~/gitlab/config:/etc/gitlab
-      - ~/gitlab/logs:/var/log/gitlab
-      - ~/gitlab/data:/var/opt/gitlab
+      - ${GITLAB_HOME}/config:/etc/gitlab
+      - ${GITLAB_HOME}/logs:/var/log/gitlab
+      - ${GITLAB_HOME}/data:/var/opt/gitlab
     shm_size: '256m'
     networks:
       - eth-ci
