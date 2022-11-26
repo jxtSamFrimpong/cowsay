@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   jenkins:
+    container_name: jenkins
     image: jenkins-dock
     # build:
     #   context: .
@@ -14,8 +15,9 @@ services:
     networks:
       - eth-ci
   gitlab:
+    container_name: gitlab
     image: 'gitlab/gitlab-ee'
-    restart: always
+    restart: on-failure
     #hostname: 'gitlab.example.com'
     #environment:
     # GITLAB_OMNIBUS_CONFIG: |
@@ -26,9 +28,9 @@ services:
       - '443:443'
       - '222:22'
     volumes:
-      - gitlab_config:/etc/gitlab
-      - gitlab_logs:/var/log/gitlab
-      - gitlab_data:/var/opt/gitlab
+      - ${GITLAB_HOME}/config:/etc/gitlab
+      - ${GITLAB_HOME}/logs:/var/log/gitlab
+      - ${GITLAB_HOME}/data:/var/opt/gitlab
     shm_size: '256m'
     networks:
       - eth-ci
@@ -39,6 +41,3 @@ networks:
 
 volumes:
   jenkins_home:
-  gitlab_config:
-  gitlab_data:
-  gitlab_logs:
