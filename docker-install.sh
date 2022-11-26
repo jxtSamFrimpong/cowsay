@@ -32,7 +32,7 @@ then
     apt-get update
 
     groupadd docker
-    usermod -aG docker jenkins
+    usermod -aG docker $USER
     newgrp docker
 
 else
